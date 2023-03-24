@@ -11,7 +11,18 @@ and open the template in the editor.
     </head>
     <body>
         <?php
-        // put your code here
+        require_once $_SERVER['DOCUMENT_ROOT'].'/bibliotecaphp/model/dao/BDPDO.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/bibliotecaphp/model/dao/UsuarioDAO.php';
+
+        $u = new Usuario();
+        $u->setNome("João");
+        $u->setEmail("joao@gmail.com");
+        $u->setSenha("segredo123");
+        $dao = UsuarioDAO::getInstance();
+        $dao->insert($u);
+        echo "Acabou o código...";
+        ?>
+
         ?>
     </body>
 </html>
