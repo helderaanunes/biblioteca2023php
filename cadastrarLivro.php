@@ -19,7 +19,7 @@ if (!isset($_SESSION['idUsuarioLogado']))
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard</title>
+    <title>Cadastrar Livro</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -45,11 +45,7 @@ if (!isset($_SESSION['idUsuarioLogado']))
 
             <!-- Main Content -->
             <div id="content">
-
-                <!-- Topbar -->
                 <?php include 'menuSuperior.php'; ?>
-                <!-- End of Topbar -->
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
@@ -385,7 +381,7 @@ if (!isset($_SESSION['idUsuarioLogado']))
             <!-- End of Main Content -->
 
             <!-- Footer -->
-        <?php include 'rodape.php'?>
+             <?php include 'rodape.php'?>
             <!-- End of Footer -->
 
         </div>
