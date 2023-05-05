@@ -10,7 +10,7 @@ $obj->setEmail($_POST['email']);
 $obj->setLogradouro($_POST['logradouro']);
 $obj->setNome($_POST['nome']);
 $obj->setNumero($_POST['numero']);
-$obj->setSenha($_POST['senha']);
+$obj->setSenha(md5($_POST['senha']));
 $obj->setTelefone($_POST['telefone']);
 $obj->setUf($_POST['uf']);
 

@@ -1,3 +1,19 @@
+<?php 
+//se estiver setado nosso id, então é para atualizar
+$objUsuario=NULL;
+if(isset($_GET['id'])){
+    //buscar da base o cara com o ID do get
+    // e salvar na variavel $objUsuario;
+    //Para usar o DAO eu preciso importar ele.
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/bibliotecaphp/model/dao/UsuarioDAO.php';
+    //usar o meu getById da classe usuarioo dao e armazenar o retorno
+    //na variável $objUsuario;
+    $objUsuario=UsuarioDAO::getInstance()->getById($_GET['id']);
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -73,55 +89,72 @@
                                         <label for="nome">
                                             Nome:
                                         </label>
-                                        <input type="text" name="nome" id="nome"/>
+                                        <input type="text" name="nome" id="nome" 
+                                               value="<?php echo ($objUsuario==NULL?"":$objUsuario->getNome())?>"/>
                                     </div>
                                     <div>
                                         <label for="cpf">
                                             CPF:
                                         </label>
-                                        <input type="text" name="cpf" id="cpf"/>
+                                        <input type="text" name="cpf" id="cpf"
+                                               value="<?php echo ($objUsuario==NULL?"":$objUsuario->getCpf())?>"/>
                                     </div>
                                     <div>
                                         <label for="logradouro">
                                             Logradouro:
                                         </label>
-                                        <input type="text" name="logradouro" id="logradouro"/>
+                                        <input type="text" name="logradouro" id="logradouro"
+                                               value="<?php echo ($objUsuario==NULL?"":$objUsuario->getLogradouro())?>"/>
                                     </div>
                                     <div>
                                         <label for="numero">
                                             Número:
                                         </label>
-                                        <input type="text" name="numero" id="numero"/>
+                                        <input type="text" name="numero" id="numero"
+                                               value="<?php echo ($objUsuario==NULL?"":$objUsuario->getNumero())?>"/>
                                     </div>
                                     <div>
                                         <label for="bairro">
                                             Bairro:
                                         </label>
-                                        <input type="text" name="bairro" id="bairro"/>
+                                        <input type="text" name="bairro" id="bairro"
+                                               value="<?php echo ($objUsuario==NULL?"":$objUsuario->getBairro())?>"/>
                                     </div>
                                     <div>
                                         <label for="Cidade">
                                             Cidade:
                                         </label>
-                                        <input type="text" name="cidade" id="cidade"/>
+                                        <input type="text" name="cidade" id="cidade"
+                                               value="<?php echo ($objUsuario==NULL?"":$objUsuario->getCidade())?>"/>
                                     </div>
                                     <div>
                                         <label for="UF">
                                             UF:
                                         </label>
-                                        <input type="text" name="uf" id="uf"/>
+                                        <select name="uf" id="uf">
+                                            <option value ="">Selecione</option>
+                                            <option value ="AC" <?php echo ($objUsuario!=NULL&&$objUsuario->getUF()=="AC"?"selected":"")?>>AC</option>
+                                            <option value ="PE" <?php echo ($objUsuario!=NULL&&$objUsuario->getUF()=="PE"?"selected":"")?>>PE</option>
+                                            <option value ="PI">PI</option>
+                                            <option value ="PB">PB</option>
+                                            
+                                        </select>
+                                        <input type="text" name="uf" id="uf"
+                                               value="<?php echo ($objUsuario==NULL?"":$objUsuario->getUF())?>"/>
                                     </div>
                                     <div>
                                         <label for="telefone">
                                             Telefone:
                                         </label>
-                                        <input type="text" name="telefone" id="telefone"/>
+                                        <input type="text" name="telefone" id="telefone"
+                                               value="<?php echo ($objUsuario==NULL?"":$objUsuario->getTelefone())?>"/>
                                     </div>
                                     <div>
                                         <label for="email">
                                             E-mail:
                                         </label>
-                                        <input type="email" name="email" id="email"/>
+                                        <input type="email" name="email" id="email"
+                                               value="<?php echo ($objUsuario==NULL?"":$objUsuario->getEmail())?>"/>
                                     </div>
                                     <div>
                                         <label for="senha">

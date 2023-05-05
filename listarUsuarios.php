@@ -103,7 +103,7 @@
 
                                                 echo "<td> ";
 
-                                                echo "<a href='#' class='btn btn-warning btn-icon-split'>
+                                                echo "<a href='cadastrarUsuario.php?id=".$obj->getId()."' class='btn btn-warning btn-icon-split'>
                                                         <span class='icon text-white-50'>
                                                             <i class='fas fa-pen'></i>
                                                         </span>
