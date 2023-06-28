@@ -58,6 +58,11 @@ class Livro {
     function toString(){
         return $this->titulo;
     }
+    public function jsonSerialize()
+    {
+        $vars = get_object_vars($this);
 
+        return $vars;
+    }
 }
 ?>
